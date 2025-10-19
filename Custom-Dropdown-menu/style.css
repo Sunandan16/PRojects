@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+}
+
+.dropdown {
+    position: relative;
+    width: 250px;
+}
+
+.dropdown-selected {
+    background: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1.5px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.dropdown-selected:hover {
+    border-color: #667eea;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.arrow {
+    font-size: 14px;
+    color: #666;
+    transition: transform 0.3s;
+}
+
+/* Rotate when active (you’ll toggle this in JS) */
+.dropdown.active .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-list {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* When dropdown is open */
+.dropdown.active .dropdown-list {
+    max-height: 300px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dropdown-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background: #f0f4ff;
+}
