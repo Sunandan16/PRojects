@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Notes App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Notes</h1>
+
+      <div class="controls">
+        <input
+          id="searchNote"
+          class="search"
+          type="search"
+          placeholder="Search notes..."
+          aria-label="Search notes"
+        />
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="editor" id="editor">
+        <input
+          id="noteTitle"
+          class="note-title"
+          type="text"
+          placeholder="Title"
+          maxlength="100"
+        />
+        <textarea
+          id="noteBody"
+          class="note-body"
+          rows="8"
+          placeholder="Write your note..."
+        ></textarea>
+
+        <div class="editor-actions">
+          <button id="saveNoteBtn" class="btn primary">Save</button>
+        </div>
+      </section>
+
+      <!-- Notes list / grid -->
+      <section class="notes-grid" id="notesGrid" aria-live="polite"></section>
+    </main>
+
+    <footer class="app-footer">
+      <small>Notes App — built by you ✨</small>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

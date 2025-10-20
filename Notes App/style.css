@@ -1,0 +1,237 @@
+/* Basic reset + font */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #f6fbff 0%, #eef6ff 100%);
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  gap: 18px;
+  padding: 20px;
+}
+
+/* Header */
+.app-header {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-header h1 {
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1.5px solid #dbeafe;
+  width: 220px;
+  background: white;
+  outline: none;
+}
+
+.search:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 4px 14px rgba(96, 165, 250, 0.12);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+  background: none;
+}
+
+.btn.primary {
+  background: #2563eb;
+  color: white;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.14);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: #374151;
+  border: 1px solid rgba(55, 65, 81, 0.06);
+}
+
+.btn.icon {
+  padding: 6px;
+  min-width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.03);
+}
+
+/* Layout */
+.main {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Editor panel */
+.editor {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.note-title {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e6eefc;
+  font-size: 1rem;
+  outline: none;
+}
+
+.note-title:focus {
+  border-color: #60a5fa;
+}
+
+.note-body {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #e6eefc;
+  font-size: 0.95rem;
+  resize: vertical;
+  min-height: 180px;
+  outline: none;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+/* Notes grid */
+.notes-grid {
+  min-height: 220px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+/* Note card */
+.note-card {
+  background: linear-gradient(180deg, #ffffff, #fbfdff);
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  box-shadow: 0 8px 22px rgba(2, 6, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  word-wrap: break-word;
+  min-height: 120px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-body {
+  color: #475569;
+  font-size: 0.95rem;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-date {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+/* Empty state */
+.notes-grid:empty::before {
+  content: "No notes yet. Click “New Note” to add one.";
+  color: #64748b;
+  padding: 20px;
+  display: block;
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+/* Footer */
+.app-footer {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  color: #64748b;
+  font-size: 13px;
+  padding-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 880px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .editor {
+    order: -1;
+  }
+
+  /* show editor on top on mobile if desired */
+  .controls .search {
+    width: 120px;
+  }
+}
